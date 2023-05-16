@@ -4,7 +4,6 @@ import Notiflix from 'notiflix';
 import { refs } from './refs';
 import { fetchCountries } from './fetchCountries';
 import { createCountriesMarkup, createCountryMarkup } from './markupService';
-// import { displayCountryList, displayCountryInfo } from './renderService';
 
 const DEBOUNCE_DELAY = 300;
 
@@ -20,11 +19,9 @@ refs.searchBox.addEventListener(
 
     fetchCountries(searchTerm)
       .then(createCountriesMarkup)
-
       .then(countries => {
         if (countries.length === 1) {
           createCountryMarkup(countries[0]);
-          //   return;
         }
         return countries;
       })
