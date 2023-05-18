@@ -1,4 +1,9 @@
-import { refs } from './refs';
+import { refs } from '../js/refs';
+
+export function cleanMarkup() {
+  refs.countryList.innerHTML = '';
+  refs.countryInfo.innerHTML = '';
+}
 
 export function createCountriesMarkup(countries) {
   const markup = countries.reduce((markup, { name, flags }) => {
@@ -7,8 +12,7 @@ export function createCountriesMarkup(countries) {
       `<li class="country-item"><img src="${flags.svg}" alt="${name}"><p>${name}</p></li>`
     );
   }, '');
-  refs.countryList.innerHTML = '';
-  refs.countryInfo.innerHTML = '';
+  cleanMarkup();
   refs.countryList.innerHTML = markup;
   return countries;
 }
@@ -31,7 +35,7 @@ export function createCountryMarkup({
         <p><b>Languages:</b> ${languagesString}</p>
     </div>
     `;
-    
-  refs.countryList.innerHTML = '';
+
+  cleanMarkup();
   refs.countryInfo.innerHTML = html;
 }
