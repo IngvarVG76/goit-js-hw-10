@@ -7,9 +7,9 @@ export const errorType = {
 };
 
 export function errorHandler(error) {
-  if (error.message === "404") {
+  if (error.message === '404') {
     Notiflix.Notify.failure(errorType.notFound);
-  } else if (error.message === errorType.toMany) {
-    Notiflix.Notify.info(errorType.toMany);
-  } else {Notiflix.Notify.failure("Shit happens :( " + error.message);}
+  } else {
+    Notiflix.Notify.failure('Shit happens :( ' + error.message);
+  }
 }
